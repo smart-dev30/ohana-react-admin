@@ -1,0 +1,26 @@
+{
+  "svg": {
+    "src/Assets/Svg/headquarter.svg": "5659634064d81149a4b736b935c3396b",
+    "src/Assets/Svg/input-email.svg": "5a2aaf7a5b72b4ee0a1fff5243f97657",
+    "src/Assets/Svg/logo.svg": "97d778fddd500b2c2c33fc95f23894cd",
+    "src/Assets/Svg/Menu/menu-dashboard.svg": "6ca78b1b34599cb7027a8ade4c967cc8",
+    "src/Assets/Svg/Menu/menu-promotions.svg": "5659634064d81149a4b736b935c3396b",
+    "src/Assets/Svg/Menu/menu-users.svg": "ad9a47dd91d30e24cb1b674cbb9491d0",
+    "src/Assets/Svg/Menu/menu-waiting-rooms.svg": "e56560ff1c538531354afaefa510c9df",
+    "src/Assets/Svg/onboarding-doc-drive.svg": "0201c5cebe84f33a14332f29e921a7b5",
+    "src/Assets/Svg/onboarding-doc-license.svg": "4b37fe68de1c1ada2d91678ef869cb4f",
+    "src/Assets/Svg/onboarding-doc-photo.svg": "b7fdfcf962730b1d5ebe8c15b3869aa0",
+    "src/Assets/Svg/onboarding-doc.svg": "7f079d3de8895085cfae14cb42a57f0c",
+    "src/Assets/Svg/onboarding-equal.svg": "4522d0f176f9126bd6f47db306507d1a",
+    "src/Assets/Svg/onboarding-military.svg": "bd0f0b867ff22fe629829f6e0c4e4111",
+    "src/Assets/Svg/onboarding-phone.svg": "1e7bb9d3ee5636d4b5db07ad71f400ed",
+    "src/Assets/Svg/organization.svg": "351adf36dba3d11bf75ab512036f3141",
+    "src/Assets/Svg/Table/action-deactivate.svg": "546a04c3f0dc9559fb4da79f10338750",
+    "src/Assets/Svg/Table/action-invite.svg": "a1b1b566f6c4980c839d79128e453003",
+    "src/Assets/Svg/Table/action-make-helper.svg": "19e8abe53f7b1b48959942c88511c101",
+    "src/Assets/Svg/Table/action-remove-helper.svg": "b46eb4df615f19567262f444113f1f15",
+    "src/Assets/Svg/Table/action-remove-user.svg": "d738d17141daf8deb0083d9e628794ac",
+    "src/Assets/Svg/plus.svg": "ea56390e9fe4bbeebd1a5f8de19eb93f",
+    "src/Assets/Svg/minus.svg": "15189998923090587295de03a70cedaf"
+  }
+}

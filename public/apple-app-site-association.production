@@ -1,0 +1,14 @@
+{
+  "activitycontinuation": {
+    "apps": [
+      "F25BC43PBY.tech.ohanalink.baby"
+    ]
+  },
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "F25BC43PBY.tech.ohanalink.baby",
+      "paths": [ "*" ]
+    }]
+  }
+}

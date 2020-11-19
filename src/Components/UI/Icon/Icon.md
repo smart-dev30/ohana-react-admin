@@ -1,0 +1,10 @@
+Icon example:
+
+```js
+<Icon />
+```
+
+
+
+
+

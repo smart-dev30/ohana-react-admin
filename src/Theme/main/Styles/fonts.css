@@ -1,0 +1,15 @@
+/* CSS imports example */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+/* @font-face {
+  font-family: 'Graphie';
+  src: url('../../../Assets/Fonts/Graphie-Regular.eot');
+  src: url('../../../Assets/Fonts/Graphie-Regular.eot?#iefix')
+  format('embedded-opentype'),
+  url('../../../Assets/Fonts/Graphie-Regular.woff2') format('woff2'),
+  url('../../../Assets/Fonts/Graphie-Regular.woff') format('woff'),
+  url('../../../Assets/Fonts/Graphie-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} */

@@ -1,0 +1,77 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:dubnium-browsers
+    working_directory: ~/bam-admin
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
+            - dependency-cache-
+      - run:
+          name: Set variables
+          command: |
+            echo "export REACT_APP_CI=$CI" >> env_file
+            echo "export REACT_APP_CI_BRANCH=$CIRCLE_BRANCH" >> env_file
+            echo "export REACT_APP_CI_BUILD=$CIRCLE_BUILD_NUM" >> env_file
+      - run:
+          name: Install aws cli
+          command: |
+            sudo apt-get install python-dev python-pip
+            sudo pip install awscli
+      - run:
+          name: Setting Signature Version 4 for S3 Request Authentication
+          command: aws configure set default.s3.signature_version s3v4
+      - run:
+          name: Setting Cloudfront preview
+          command: |
+            aws configure set preview.cloudfront true
+            aws configure set preview.create-invalidation true
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - run:
+          name: Lint
+          command: yarn lint
+      #      - run:
+      #          name: Test
+      #          command: |
+      #            source env_file
+      #            yarn test
+      - run:
+          name: Build
+          command: |
+            source env_file
+            yarn build
+      - run:
+          name: Deploy to S3
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws s3 sync build s3://bam-staging-front --delete
+              aws s3 cp \
+                --content-type "application/json" \
+                --metadata-directive REPLACE \
+                s3://bam-staging-front/apple-app-site-association.staging \
+                s3://bam-staging-front/.well-known/apple-app-site-association
+            elif [ "${CIRCLE_BRANCH}" == "production" ]; then
+              aws s3 sync build s3://bam-production-front --delete
+              aws s3 cp \
+                --content-type "application/json" \
+                --metadata-directive REPLACE \
+                s3://bam-production-front/apple-app-site-association.production \
+                s3://bam-production-front/.well-known/apple-app-site-association
+            fi
+      - run:
+          name: Create invalidation
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              aws cloudfront create-invalidation --distribution-id E1TXIZQ3ABM6WR --paths /\*
+            elif [ "${CIRCLE_BRANCH}" == "production" ]; then
+              aws cloudfront create-invalidation --distribution-id E2NHEDFISPETRM --paths /\*
+            fi
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
